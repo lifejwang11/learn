@@ -1,6 +1,6 @@
 #内置tomcat端口号
 server:
-  port: 8080
+  port: 9090
 
 #Spring的配置
 spring:
@@ -34,14 +34,8 @@ spring:
       #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
-  #thyemleaf配置
-  thymeleaf:
-    prefix: classpath:/templates/
-    check-template-location: true
-    suffix: .html
-    encoding: UTF-8
-    mode: LEGACYHTML5
-    cache: false
+  main:
+    allow-bean-definition-overriding: true
   #aop配置
   aop:
     auto: true
@@ -50,14 +44,14 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
-#  mvc:
-#    view:
-#      prefix: /WEB-INF/jsp/
-#      suffix: .jsp
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
 
 #mybatis配置
 mybatis:
-  mapper-locations: classpatch:mapper/*xml
+  mapper-locations: classpath:mapper/*xml
   type-aliases-package: com.wgg.learn.pojo
 
 #pagehelper

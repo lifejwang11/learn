@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:title="登录界面">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+
+<!--<form @submit.prevent="submit" id="form">-->
+<form method="post" action="/login">
+    登录<input type="text" name="username"><br>
+    密码<input type="password" name="password" ><br>
+    <input type="submit">
+</form>
+<script>
+    new Vue({
+        el:"#form",
+        data:{
+            username:'',
+            password:''
+        },
+        methods:{
+            submit:{
+                post:function () {
+                    this.$http.post(
+                        'login',
+                        {username:'{{username}}',password:'{{password}}'}).then(
+                            function (res) {
+                                if (res == 'SUCCESS') {
+                                    alert("SUCCESS");
+                                } else {
+                                    alert("FAIL");
+                                }
+                             }
+                    );
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

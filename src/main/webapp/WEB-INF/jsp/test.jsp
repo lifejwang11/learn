@@ -11,6 +11,10 @@
     <title>JSP</title>
 </head>
 <body>
-JSP界面
+<form method="post" action="/jsp/login">
+    登录<input type="text" name="username"><br>
+    密码<input type="password" name="password" ><br>
+    <input type="submit">
+</form>
 </body>
 </html>
