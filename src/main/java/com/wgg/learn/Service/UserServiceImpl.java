@@ -1,6 +1,7 @@
 package com.wgg.learn.Service;
 
 import com.wgg.learn.dao.JPA;
+import com.wgg.learn.dao.Mybatis;
 import com.wgg.learn.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +12,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private JPA jpa;
+
+    @Autowired
+    private Mybatis mybatis;
 
     @Override
     public boolean isExist(@Param("username") String username, @Param("password") String password) {

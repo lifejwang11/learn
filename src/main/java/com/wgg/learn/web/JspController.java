@@ -1,6 +1,7 @@
 package com.wgg.learn.web;
 
 import com.wgg.learn.dao.Mybatis;
+import com.wgg.learn.exception.UrlException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,5 +35,15 @@ public class JspController {
         }else{
             return "SUCCESS";
         }
+    }
+
+    @GetMapping(value = "/error")
+    public String testone(){
+        try {
+            int i=1/0;
+        }catch (ArithmeticException url){
+            throw new UrlException("1000");
+        }
+       return "404";
     }
 }
